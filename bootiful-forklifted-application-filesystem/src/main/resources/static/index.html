@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div>
+    <form action="/files" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<div>
+    <ul id="file-list"></ul>
+</div>
+
+<script src="bower_components/es6-promise/promise.js"></script>
+<script src="bower_components/fetch/fetch.js"></script>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+        var fileList = document.querySelector("#file-list");
+
+        fetch("/files").then(function (response) {
+            response.json().then(function (data) {
+                if (Array.isArray(data) && data.length) {
+                    data.forEach(function (name, i, arr) {
+                        var li = document.createElement("li");
+                        li.innerHTML = "<a href='/files/" + name + "'>" + name + "</a>";
+                        fileList.appendChild(li);
+                    });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

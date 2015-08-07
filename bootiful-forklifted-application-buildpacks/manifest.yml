@@ -1,0 +1,14 @@
+---
+applications:
+- name: wsl-demo
+  memory: 512M
+  buildpack: https://github.com/cloudfoundry/ibm-websphere-liberty-buildpack.git
+  instances: 1
+  host: wsl-demo-${random-word}
+  path: target/bootiful-forklifted-application-buildpacks.war
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+    DEBUG: "true"
+    debug: "true"
+    IBM_JVM_LICENSE:  L-JWOD-9NXJQY
+    IBM_LIBERTY_LICENSE: L-MCAO-9SYMVC

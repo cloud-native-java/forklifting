@@ -1,0 +1,13 @@
+---
+applications:
+- name: sendgrid
+  memory: 512M
+  instances: 1
+  host: sendgrid-${random-word}
+  path: target/sendgrid.jar
+  services:
+    - cf-sendgrid
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+    DEBUG: "true"
+    debug: "true"

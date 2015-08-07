@@ -1,0 +1,13 @@
+---
+applications:
+- name: sessions
+  memory: 512M
+  instances: 1
+  host: sessions-${random-word}
+  path: target/bootiful-forklifted-application-sessions.jar
+  services:
+    - redis-sessions
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+    DEBUG: "true"
+    debug: "true"
