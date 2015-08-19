@@ -3,24 +3,29 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>bootiful-forklifted-application</artifactId>
+    <artifactId>forklifting</artifactId>
     <packaging>pom</packaging>
 
 
     <parent>
-        <groupId>bootiful</groupId>
-        <artifactId>bootiful-parent</artifactId>
+        <groupId>cnj</groupId>
+        <artifactId>parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../bootiful-parent</relativePath>
     </parent>
     <modules>
-        <module>bootiful-forklifted-application-sessions</module>
-        <module>bootiful-forklifted-application-rmi</module>
-        <module>bootiful-forklifted-application-di</module>
-        <module>bootiful-forklifted-application-jta</module>
-        <module>bootiful-forklifted-application-filesystem</module>
-        <module>bootiful-forklifted-application-email</module>
-        <module>bootiful-forklifted-application-buildpacks</module>
+        <module>rmi</module>
+        <module>di</module>
+        <module>jta</module>
+
+        <!--  <module>sessions</module>
+
+
+
+
+          <module>email</module>
+        -->
+        <module>buildpacks</module>
+        <module>filesystem</module>
     </modules>
 
 </project>
