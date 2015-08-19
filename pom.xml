@@ -12,17 +12,14 @@
         <artifactId>parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
+
     <modules>
         <module>rmi</module>
         <module>di</module>
         <module>jta</module>
-
-        <!--  <module>sessions</module>
-
-
-
-
-          <module>email</module>
+        <!--
+        <module>sessions</module>
+        <module>email</module>
         -->
         <module>buildpacks</module>
         <module>filesystem</module>

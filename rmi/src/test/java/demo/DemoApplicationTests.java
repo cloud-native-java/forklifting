@@ -33,10 +33,12 @@ public class DemoApplicationTests {
     @Test
     public void contextLoads() throws Exception {
 
+        // <2>
         AnnotationConfigApplicationContext clientContext =
-                new AnnotationConfigApplicationContext(DemoApplicationClientConfiguration.class); // <2>
+                new AnnotationConfigApplicationContext(DemoApplicationClientConfiguration.class);
 
-        MessageService messageService = clientContext.getBean(MessageService.class); // <3>
+        // <3>
+        MessageService messageService = clientContext.getBean(MessageService.class);
         Message result = messageService.greet("Josh");
         assertNotNull("the result must not be null", result);
         assertEquals(result.getMessage(), "Hello, Josh!");
@@ -48,8 +50,7 @@ public class DemoApplicationTests {
 
 
         @Bean
-            // <4>
-        HttpInvokerProxyFactoryBean client() {
+        HttpInvokerProxyFactoryBean client() { // <4>
             HttpInvokerProxyFactoryBean client = new HttpInvokerProxyFactoryBean();
             client.setServiceUrl("http://localhost:8080/messageService");
             client.setServiceInterface(MessageService.class);
