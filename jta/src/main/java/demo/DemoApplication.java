@@ -23,23 +23,6 @@ import javax.transaction.Transactional;
 @SpringBootApplication
 public class DemoApplication {
 
-    private Log log = LogFactory.getLog(getClass());
-
-    @Bean
-    CommandLineRunner demo(AccountService service,
-                           AccountRepository repository) {
-        return args -> {
-            service.createAccountAndNotify("josh");
-            log.info("count is " + repository.count());
-            try {
-                service.createAccountAndNotify("error");
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
-            log.info("count is " + repository.count());
-        };
-    }
-
     public static void main(String[] args) throws Exception {
         SpringApplication.run(DemoApplication.class, args).close();
     }
