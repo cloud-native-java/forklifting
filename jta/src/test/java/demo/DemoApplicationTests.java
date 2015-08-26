@@ -33,7 +33,5 @@ public class DemoApplicationTests {
         }
         log.info("count is " + repository.count());
         assertEquals( repository.count(), 1 );
-
     }
-
 }
