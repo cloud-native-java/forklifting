@@ -34,6 +34,7 @@ class FileController {
     @Autowired
     private GridFsTemplate gridFsTemplate;
 
+    // <1>
     @RequestMapping(method = RequestMethod.POST)
     String createOrUpdate(@RequestParam MultipartFile file) throws Exception {
         String name = file.getOriginalFilename();
@@ -42,6 +43,7 @@ class FileController {
         return "redirect:/";
     }
 
+    // <2>
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     List<String> list() {
@@ -50,6 +52,7 @@ class FileController {
                 .collect(Collectors.toList());
     }
 
+    // <3>
     @RequestMapping(value = "/{name:.+}", method = RequestMethod.GET)
     ResponseEntity<?> get(@PathVariable String name) throws Exception {
         Optional<GridFSDBFile> optionalCreated = maybeLoadFile(name);

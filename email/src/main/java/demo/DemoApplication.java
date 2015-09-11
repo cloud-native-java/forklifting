@@ -22,14 +22,15 @@ class EmailRestController {
     @Autowired
     private SendGrid sendGrid;
 
+    // <1>
     @RequestMapping("/email")
     SendGrid.Response email(@RequestParam String message) throws Exception {
         SendGrid.Email email = new SendGrid.Email();
         email.setHtml("<hi>" + message + "</h1>");
         email.setText(message);
-        email.setTo(new String[]{"jlong@pivotal.io"});
+        email.setTo(new String[]{"user1@host.io"});
         email.setToName(new String[]{"Josh"});
-        email.setFrom("jlong@gopivotal.com");
+        email.setFrom("user2@host.io");
         email.setFromName("Josh (sender)");
         email.setSubject("I just called.. to say.. I (message truncated)");
         return sendGrid.send(email);
