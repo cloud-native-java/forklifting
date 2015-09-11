@@ -47,7 +47,7 @@ public class DemoApplicationTests {
 
     @Configuration
     public static class DemoApplicationClientConfiguration {
-        
+
         @Bean
         HttpInvokerProxyFactoryBean client() { // <4>
             HttpInvokerProxyFactoryBean client = new HttpInvokerProxyFactoryBean();
