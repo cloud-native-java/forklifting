@@ -4,7 +4,7 @@ applications:
   memory: 512M
   instances: 1
   host: sessions-${random-word}
-  path: target/bootiful-forklifted-application-sessions.jar
+  path: target/sessions.jar
   services:
     - redis-sessions
   env:

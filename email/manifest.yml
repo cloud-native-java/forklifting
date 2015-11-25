@@ -4,7 +4,7 @@ applications:
   memory: 512M
   instances: 1
   host: sendgrid-${random-word}
-  path: target/sendgrid.jar
+  path: target/email.jar
   services:
     - cf-sendgrid
   env:

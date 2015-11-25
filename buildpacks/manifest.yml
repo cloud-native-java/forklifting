@@ -5,7 +5,7 @@ applications:
   buildpack: https://github.com/cloudfoundry/ibm-websphere-liberty-buildpack.git
   instances: 1
   host: wsl-demo-${random-word}
-  path: target/bootiful-forklifted-application-buildpacks.war
+  path: target/buildpacks.war
   env:
     SPRING_PROFILES_ACTIVE: cloud
     DEBUG: "true"

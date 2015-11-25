@@ -4,7 +4,7 @@ applications:
   memory: 512M
   instances: 1
   host: rmi-${random-word}
-  path: target/bootiful-forklifted-application-rmi.jar
+  path: target/rmi.jar
   env:
     SPRING_PROFILES_ACTIVE: cloud
     DEBUG: "true"
