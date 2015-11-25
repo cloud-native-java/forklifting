@@ -1,7 +1,7 @@
 ---
 applications:
 - name: wsl-demo
-  memory: 512M
+  memory: 1024M
   buildpack: https://github.com/cloudfoundry/ibm-websphere-liberty-buildpack.git
   instances: 1
   host: wsl-demo-${random-word}
