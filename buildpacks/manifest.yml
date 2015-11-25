@@ -10,5 +10,5 @@ applications:
     SPRING_PROFILES_ACTIVE: cloud
     DEBUG: "true"
     debug: "true"
-    IBM_JVM_LICENSE:  L-JWOD-9NXJQY
+    IBM_JVM_LICENSE:  L-JWOD-9SYNCP
     IBM_LIBERTY_LICENSE: L-MCAO-9SYMVC
