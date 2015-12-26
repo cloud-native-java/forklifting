@@ -8,8 +8,12 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <artifactId>sessions</artifactId>
-    <dependencies>
 
+<!--    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+    </properties>-->
+    <dependencies>
         <!--tag::deps[]-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -33,6 +37,13 @@
             <scope>test</scope>
         </dependency>
         <!--end::deps[]-->
-
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -6,7 +6,7 @@ applications:
   host: sessions-${random-word}
   path: target/sessions.jar
   services:
-    - redis-sessions
+    - redis-bus
   env:
     SPRING_PROFILES_ACTIVE: cloud
     DEBUG: "true"
