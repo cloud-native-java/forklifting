@@ -9,8 +9,7 @@
         <version>1.0.0-SNAPSHOT</version>
      </parent>
     <artifactId>di</artifactId>
-
-
+    <name>forklifting/di</name>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

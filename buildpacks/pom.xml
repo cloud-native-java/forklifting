@@ -9,7 +9,7 @@
         <version>1.0.0-SNAPSHOT</version>
      </parent>
     <artifactId>buildpacks</artifactId>
-
+    <name>forklifting/buildpacks</name>
     <packaging>war</packaging>
 
     <dependencies>

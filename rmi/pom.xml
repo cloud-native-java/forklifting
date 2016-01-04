@@ -7,6 +7,7 @@
         <artifactId>forklifting</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
+    <name>forklifting/rmi</name>
     <artifactId>rmi</artifactId>
     <dependencies>
         <!--tag::deps[]-->
