@@ -1,6 +1,5 @@
 package demo;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,12 +10,12 @@ import java.io.IOException;
 @WebServlet("/hi")
 public class DemoApplication extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request,
-                         HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 
-        response.setContentType("text/html");
+		response.setContentType("text/html");
 
-        response.getWriter()
-                .print("<html><body><h3>Hello Cloud</h3></body></html>");
-    }
+		response.getWriter().print(
+				"<html><body><h3>Hello Cloud</h3></body></html>");
+	}
 }

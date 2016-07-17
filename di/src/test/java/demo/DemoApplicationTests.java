@@ -17,16 +17,16 @@ import static org.junit.Assert.assertNotNull;
 @WebAppConfiguration
 public class DemoApplicationTests {
 
-    @Autowired
-    private DataSource dataSource;
+	@Autowired
+	private DataSource dataSource;
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
 
-    @Test
-    public void contextLoads() {
-        assertNotNull("jdbcTemplate must not be null!", this.jdbcTemplate);
-        assertNotNull("dataSource must not be null!", this.dataSource);
-    }
+	@Test
+	public void contextLoads() {
+		assertNotNull("jdbcTemplate must not be null!", this.jdbcTemplate);
+		assertNotNull("dataSource must not be null!", this.dataSource);
+	}
 
 }

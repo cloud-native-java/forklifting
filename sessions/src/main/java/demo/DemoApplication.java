@@ -22,30 +22,30 @@ import java.util.UUID;
 @SpringBootApplication
 public class DemoApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+	}
 }
 
 @RestController
 class SessionController {
 
-    @Value("${CF_INSTANCE_IP:127.0.0.1}")
-    private String ip;
+	@Value("${CF_INSTANCE_IP:127.0.0.1}")
+	private String ip;
 
-    @RequestMapping("/hi")
-    Map<String, String> uid(HttpSession session) {
-        // <1>
-        UUID uid = (UUID) session.getAttribute("uid");
-        if (uid == null) {
-            uid = UUID.randomUUID();
-        }
-        session.setAttribute("uid", uid);
+	@RequestMapping("/hi")
+	Map<String, String> uid(HttpSession session) {
+		// <1>
+		UUID uid = (UUID) session.getAttribute("uid");
+		if (uid == null) {
+			uid = UUID.randomUUID();
+		}
+		session.setAttribute("uid", uid);
 
-        Map<String, String> m = new HashMap<>();
-        m.put("instance_ip", this.ip);
-        m.put("uuid", uid.toString());
-        return m;
-    }
+		Map<String, String> m = new HashMap<>();
+		m.put("instance_ip", this.ip);
+		m.put("uuid", uid.toString());
+		return m;
+	}
 
 }

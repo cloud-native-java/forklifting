@@ -14,24 +14,24 @@ import static org.junit.Assert.assertEquals;
 @SpringApplicationConfiguration(classes = DemoApplication.class)
 public class DemoApplicationTests {
 
-    private Log log = LogFactory.getLog(getClass());
+	private Log log = LogFactory.getLog(getClass());
 
-    @Autowired
-    private AccountService service;
+	@Autowired
+	private AccountService service;
 
-    @Autowired
-    private AccountRepository repository;
+	@Autowired
+	private AccountRepository repository;
 
-    @Test
-    public void contextLoads() {
-        service.createAccountAndNotify("josh");
-        log.info("count is " + repository.count());
-        try {
-            service.createAccountAndNotify("error");
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        log.info("count is " + repository.count());
-        assertEquals( repository.count(), 1 );
-    }
+	@Test
+	public void contextLoads() {
+		service.createAccountAndNotify("josh");
+		log.info("count is " + repository.count());
+		try {
+			service.createAccountAndNotify("error");
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+		}
+		log.info("count is " + repository.count());
+		assertEquals(repository.count(), 1);
+	}
 }

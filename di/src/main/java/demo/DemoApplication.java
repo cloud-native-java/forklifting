@@ -17,33 +17,36 @@ import java.sql.ResultSet;
 @SpringBootApplication
 public class DemoApplication {
 
-    private Log log = LogFactory.getLog(getClass());
+	private Log log = LogFactory.getLog(getClass());
 
-    @Bean
-    DataSource h2(@Value("${spring.datasource.url}") String url,
-                  @Value("${spring.datasource.username}") String username,
-                  @Value("${spring.datasource.password}") String pw) {
+	@Bean
+	DataSource h2(@Value("${spring.datasource.url}") String url,
+			@Value("${spring.datasource.username}") String username,
+			@Value("${spring.datasource.password}") String pw) {
 
-        log.info(String.format("creating an embedded datasource, but we could as easily" +
-                " have actually constructed a %s pointing to a real database", javax.sql.DataSource.class.getName()));
+		log.info(String
+				.format("creating an embedded datasource, but we could as easily"
+						+ " have actually constructed a %s pointing to a real database",
+						javax.sql.DataSource.class.getName()));
 
-        log.info(String.format("\turl: '%s', username: '%s', password: '%s'", url, username, pw));
+		log.info(String.format("\turl: '%s', username: '%s', password: '%s'",
+				url, username, pw));
 
-        return new EmbeddedDatabaseBuilder()
-                .setType(EmbeddedDatabaseType.H2)
-                .build();
-    }
+		return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
+				.build();
+	}
 
-    @Bean
-    CommandLineRunner jdbc(JdbcTemplate template) {
-        return args ->
-                template.query("select * from FTP_USER", (ResultSet rs) ->
-                        log.info(String.format("username: %s, admin?: %s, enabled?: %s",
-                                rs.getString("USERNAME"), rs.getString("ADMIN"), rs.getString("ENABLED"))));
+	@Bean
+	CommandLineRunner jdbc(JdbcTemplate template) {
+		return args -> template.query("select * from FTP_USER",
+				(ResultSet rs) -> log.info(String.format(
+						"username: %s, admin?: %s, enabled?: %s",
+						rs.getString("USERNAME"), rs.getString("ADMIN"),
+						rs.getString("ENABLED"))));
 
-    }
+	}
 
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+	}
 }
