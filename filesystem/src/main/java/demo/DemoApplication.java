@@ -34,15 +34,16 @@ class FileController {
 	@Autowired
 	private GridFsTemplate gridFsTemplate;
 
+	private static Query getFilenameQuery(String name) {
+		return Query.query(GridFsCriteria.whereFilename().is(name));
+	}
+
 	// <1>
 	@RequestMapping(method = RequestMethod.POST)
 	String createOrUpdate(@RequestParam MultipartFile file) throws Exception {
 		String name = file.getOriginalFilename();
-		maybeLoadFile(name).ifPresent(
-				p -> gridFsTemplate.delete(getFilenameQuery(name)));
-		gridFsTemplate
-				.store(file.getInputStream(), name, file.getContentType())
-				.save();
+		maybeLoadFile(name).ifPresent(p -> gridFsTemplate.delete(getFilenameQuery(name)));
+		gridFsTemplate.store(file.getInputStream(), name, file.getContentType()).save();
 		return "redirect:/";
 	}
 
@@ -65,10 +66,10 @@ class FileController {
 
 				HttpHeaders headers = new HttpHeaders();
 				headers.add(HttpHeaders.CONTENT_TYPE, created.getContentType());
-				return new ResponseEntity<byte[]>(os.toByteArray(), headers,
-						HttpStatus.OK);
+				return new ResponseEntity<byte[]>(os.toByteArray(), headers, HttpStatus.OK);
 			}
-		} else {
+		}
+		else {
 			return ResponseEntity.notFound().build();
 		}
 	}
@@ -80,9 +81,5 @@ class FileController {
 	private Optional<GridFSDBFile> maybeLoadFile(String name) {
 		GridFSDBFile file = gridFsTemplate.findOne(getFilenameQuery(name));
 		return Optional.ofNullable(file);
-	}
-
-	private static Query getFilenameQuery(String name) {
-		return Query.query(GridFsCriteria.whereFilename().is(name));
 	}
 }

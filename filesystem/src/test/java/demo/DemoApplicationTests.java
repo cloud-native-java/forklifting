@@ -20,8 +20,7 @@ public class DemoApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		assertNotNull("the gridFsTemplate must not be null!",
-				this.gridFsTemplate);
+		assertNotNull("the gridFsTemplate must not be null!", this.gridFsTemplate);
 	}
 
 }

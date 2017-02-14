@@ -28,8 +28,8 @@ class EmailRestController {
 		SendGrid.Email email = new SendGrid.Email();
 		email.setHtml("<hi>" + message + "</h1>");
 		email.setText(message);
-		email.setTo(new String[]{"user1@host.io"});
-		email.setToName(new String[]{"Josh"});
+		email.setTo(new String[] { "user1@host.io" });
+		email.setToName(new String[] { "Josh" });
 		email.setFrom("user2@host.io");
 		email.setFromName("Josh (sender)");
 		email.setSubject("I just called.. to say.. I (message truncated)");

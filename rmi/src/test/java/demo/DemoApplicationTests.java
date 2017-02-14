@@ -22,8 +22,7 @@ public class DemoApplicationTests {
 
 	@Before
 	public void before() throws Exception {
-		this.serviceApplicationContext = SpringApplication
-				.run(DemoApplication.class); // <1>
+		this.serviceApplicationContext = SpringApplication.run(DemoApplication.class); // <1>
 	}
 
 	@After
@@ -39,8 +38,7 @@ public class DemoApplicationTests {
 				DemoApplicationClientConfiguration.class);
 
 		// <3>
-		MessageService messageService = clientContext
-				.getBean(MessageService.class);
+		MessageService messageService = clientContext.getBean(MessageService.class);
 		Message result = messageService.greet("Josh");
 		assertNotNull("the result must not be null", result);
 		assertEquals(result.getMessage(), "Hello, Josh!");
