@@ -15,12 +15,12 @@ import static org.junit.Assert.assertNotNull;
 @WebAppConfiguration
 public class DemoApplicationTests {
 
-	@Autowired
-	private GridFsTemplate gridFsTemplate;
+ @Autowired
+ private GridFsTemplate gridFsTemplate;
 
-	@Test
-	public void contextLoads() {
-		assertNotNull("the gridFsTemplate must not be null!", this.gridFsTemplate);
-	}
+ @Test
+ public void contextLoads() {
+  assertNotNull("the gridFsTemplate must not be null!", this.gridFsTemplate);
+ }
 
 }

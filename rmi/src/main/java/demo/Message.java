@@ -4,24 +4,24 @@ import java.io.Serializable;
 
 public class Message implements Serializable {
 
-	private String message;
+ private String message;
 
-	public Message(String message) {
-		this.message = message;
-	}
+ public Message(String message) {
+  this.message = message;
+ }
 
-	public Message() {
-	}
+ public Message() {
+ }
 
-	public String getMessage() {
-		return message;
-	}
+ public String getMessage() {
+  return message;
+ }
 
-	@Override
-	public String toString() {
-		final StringBuilder sb = new StringBuilder("Message{");
-		sb.append("message='").append(message).append('\'');
-		sb.append('}');
-		return sb.toString();
-	}
+ @Override
+ public String toString() {
+  final StringBuilder sb = new StringBuilder("Message{");
+  sb.append("message='").append(message).append('\'');
+  sb.append('}');
+  return sb.toString();
+ }
 }

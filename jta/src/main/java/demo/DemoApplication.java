@@ -24,58 +24,58 @@ interface AccountRepository extends JpaRepository<Account, Long> {
 @SpringBootApplication
 public class DemoApplication {
 
-	public static void main(String[] args) throws Exception {
-		SpringApplication.run(DemoApplication.class, args).close();
-	}
+ public static void main(String[] args) throws Exception {
+  SpringApplication.run(DemoApplication.class, args).close();
+ }
 }
 
 @Entity
 class Account {
 
-	@Id
-	@GeneratedValue
-	private Long id;
+ @Id
+ @GeneratedValue
+ private Long id;
 
-	private String username;
+ private String username;
 
-	Account() {
-	}
+ Account() {
+ }
 
-	public Account(String username) {
-		this.username = username;
-	}
+ public Account(String username) {
+  this.username = username;
+ }
 
-	public String getUsername() {
-		return this.username;
-	}
+ public String getUsername() {
+  return this.username;
+ }
 }
 
 @Component
 class Messages {
 
-	private Log log = LogFactory.getLog(getClass());
+ private Log log = LogFactory.getLog(getClass());
 
-	@JmsListener(destination = "accounts")
-	public void onMessage(String content) {
-		log.info("----> " + content);
-	}
+ @JmsListener(destination = "accounts")
+ public void onMessage(String content) {
+  log.info("----> " + content);
+ }
 }
 
 @Service
 @Transactional
 class AccountService {
 
-	@Autowired
-	private JmsTemplate jmsTemplate;
+ @Autowired
+ private JmsTemplate jmsTemplate;
 
-	@Autowired
-	private AccountRepository accountRepository;
+ @Autowired
+ private AccountRepository accountRepository;
 
-	public void createAccountAndNotify(String username) {
-		this.jmsTemplate.convertAndSend("accounts", username);
-		this.accountRepository.save(new Account(username));
-		if ("error".equals(username)) {
-			throw new RuntimeException("Simulated error");
-		}
-	}
+ public void createAccountAndNotify(String username) {
+  this.jmsTemplate.convertAndSend("accounts", username);
+  this.accountRepository.save(new Account(username));
+  if ("error".equals(username)) {
+   throw new RuntimeException("Simulated error");
+  }
+ }
 }
