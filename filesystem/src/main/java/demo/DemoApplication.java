@@ -42,8 +42,10 @@ class FileController {
  @RequestMapping(method = RequestMethod.POST)
  String createOrUpdate(@RequestParam MultipartFile file) throws Exception {
   String name = file.getOriginalFilename();
-  maybeLoadFile(name).ifPresent(p -> gridFsTemplate.delete(getFilenameQuery(name)));
-  gridFsTemplate.store(file.getInputStream(), name, file.getContentType()).save();
+  maybeLoadFile(name).ifPresent(
+   p -> gridFsTemplate.delete(getFilenameQuery(name)));
+  gridFsTemplate.store(file.getInputStream(), name, file.getContentType())
+   .save();
   return "redirect:/";
  }
 
@@ -52,7 +54,7 @@ class FileController {
  @ResponseBody
  List<String> list() {
   return getFiles().stream().map(GridFSDBFile::getFilename)
-    .collect(Collectors.toList());
+   .collect(Collectors.toList());
  }
 
  // <3>

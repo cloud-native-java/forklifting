@@ -17,8 +17,8 @@ public class DemoApplication {
   return new SimpleMessageService();
  }
 
- @Bean(name = "/messageService")
  // <2>
+ @Bean(name = "/messageService")
  HttpInvokerServiceExporter httpMessageService() {
   HttpInvokerServiceExporter http = new HttpInvokerServiceExporter();
   http.setServiceInterface(MessageService.class);

@@ -11,7 +11,7 @@ import java.io.IOException;
 public class DemoApplication extends HttpServlet {
 
  protected void doGet(HttpServletRequest request, HttpServletResponse response)
-   throws ServletException, IOException {
+  throws ServletException, IOException {
 
   response.setContentType("text/html");
 
