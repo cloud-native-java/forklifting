@@ -16,17 +16,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.transaction.Transactional;
 
-// TODO map the transactional log to the filesystem. Use FUSE on Cloud Foundry to mount the filesystem.
-
-interface AccountRepository extends JpaRepository<Account, Long> {
-}
-
 @SpringBootApplication
 public class DemoApplication {
 
  public static void main(String[] args) throws Exception {
-  SpringApplication.run(DemoApplication.class, args).close();
+  SpringApplication.run(DemoApplication.class, args) ;
  }
+}
+
+interface AccountRepository extends JpaRepository<Account, Long> {
 }
 
 @Entity
